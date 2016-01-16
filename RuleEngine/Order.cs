@@ -19,6 +19,7 @@ namespace RuleEngine {
         public DateTime CaptureDate { get; set; }
         public DateTime DeliveryDate { get; set; }
         public IEnumerable<OrderItem> Items { get; set; }
+        public string CardNumber { get; set; }
 
         public Order(string id, int value, State state, decimal total, PaymentMethod paymentMethod) {
             Id = id;

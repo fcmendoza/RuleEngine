@@ -89,4 +89,17 @@ namespace RuleEngine {
             return (order.State == State.Closed);
         }
     }
+
+    /// <summary>
+    /// Validates the order's card number.
+    /// The rule evalues to true when the number of digists are provided and exacly 16.
+    /// </summary>
+    public class CardNumberValidRule : Rule {
+        public override bool Evaluate(Order order) {
+            return !String.IsNullOrWhiteSpace(order.CardNumber)
+                && order.CardNumber.All(Char.IsDigit)
+                && order.CardNumber.Length == 16;
+        }
+    }
 }
+

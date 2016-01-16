@@ -85,5 +85,23 @@ namespace RuleEngine {
             Assert.AreEqual(massRules.Evaluate(order2), false);
             Assert.AreEqual(massRules.Evaluate(order3), false);
         }
+
+        [TestMethod]
+        public void CardNumberValidRule_Tests() {
+            var order = new Order(id: "123-456-111", value: 50, state: State.Closed, total: 100.0m, paymentMethod: PaymentMethod.CreditCard);
+
+            Rule rule = new CardNumberValidRule();
+
+            Assert.AreEqual(rule.Evaluate(order), false);
+
+            order.CardNumber = "1234";
+            Assert.AreEqual(rule.Evaluate(order), false);
+
+            order.CardNumber = "abcd1234efgh5678";
+            Assert.AreEqual(rule.Evaluate(order), false);
+
+            order.CardNumber = "1234567890123456";
+            Assert.AreEqual(rule.Evaluate(order), true);
+        }
     }
 }
