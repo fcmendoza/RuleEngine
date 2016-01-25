@@ -219,9 +219,9 @@ Output
 
 ## How you could persist these rules offline
 
-* I would store every rule and it's configuration as XML and saved them to a database table.
+* I would store every rule and its configuration as XML and saved them to a database table.
 * The rules would be bundled into profiles (a profile being a collection of rules).
-* Every concrete class derived from `Rule` would have to implement a `Serialize` and `Deserialize` operation. That way every rule knows how to create an instance of itself and how to represent its current state as XML.
+* Ideally, every concrete class derived from `Rule` would have to implement a `Serialize` and `Deserialize` operation. That way every rule knows how to create an instance of itself and how to represent its current state as XML.
 * A sample XML for a rule could look like this:
 
 ```xml
