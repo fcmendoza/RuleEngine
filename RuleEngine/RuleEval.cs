@@ -16,7 +16,7 @@ namespace RuleEngine {
     /// <summary>
     /// Rules in charge of evaluating multiple rules will derive from this class.
     /// The AddRules functionality is inherited by them and all have access to 
-    /// the it's interlan _rules member.
+    /// its internal _rules member.
     /// </summary>
     public abstract class OperatorRule : Rule {
         public void AddRules(IEnumerable<Rule> rules) {
